@@ -6,20 +6,6 @@
       "tech": "Zara Larson",
       "date": "2021-08-19T17:46:39.155Z",
       "id": 1
-    },
-    {
-      "message": "hard drive failed 012",
-      "attention": true,
-      "tech": "John Doe",
-      "date": "2021-08-19T17:47:11.167Z",
-      "id": 2
-    },
-    {
-      "message": "1122 wireless down ",
-      "attention": true,
-      "tech": "Zara Larson",
-      "date": "2021-08-19T17:47:29.195Z",
-      "id": 3
     }
   ],
   "techs": [

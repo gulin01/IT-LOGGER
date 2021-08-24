@@ -6,7 +6,8 @@ import {
     DELETE_LOG,
     SET_CURRENT,
     CLEAR_CURRENT,
-    UPDATE_LOG
+    UPDATE_LOG,
+    SEARCH_LOGS
 } from './types'
 
 // export const getLogs = () =>{
@@ -39,7 +40,7 @@ export const deleteLog = (id) => async dispatch =>{
     } catch (error) {
         dispatch({
             type:LOGS_ERROR,
-            payload:error.response.data
+            payload:error.response.statusText
         })
     } 
 }
@@ -65,7 +66,27 @@ export const updateLog = log => async dispatch =>{
     } catch (error) {
         dispatch({
             type:LOGS_ERROR,
-            payload:error.response.data
+            payload:error.response.statusText
+        })
+    } 
+}
+// Search server Logs
+export const searchLogs = (text) => async dispatch =>{
+    
+    //  cleaner way  
+    try {
+        setLoading();
+        const res = await fetch(`/logs?q=${text}`);
+        const data = await res.json();
+
+        dispatch({
+            type:SEARCH_LOGS,
+            payload:data
+        })
+    } catch (error) {
+        dispatch({
+            type:LOGS_ERROR,
+            payload:error.response.statusText
         })
     } 
 }
@@ -128,7 +149,7 @@ export const addLog = (log) => async dispatch =>{
     } catch (error) {
         dispatch({
             type:LOGS_ERROR,
-            payload:error.response.data
+            payload:error.response.statusText
         })
     } 
 } 
